@@ -14,6 +14,11 @@ java {
     }
 }
 
+/*Semplifica lo Start su Render*/
+bootJar {
+    archiveFileName = "app.jar"
+}
+
 repositories {
     mavenCentral()
 }
