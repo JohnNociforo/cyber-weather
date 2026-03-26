@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>NEON//WEATHER</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600&display=swap" rel="stylesheet"/>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<canvas id="bg"></canvas>
+<div id="scanlines"></div>
+<div id="vignette"></div>
+
+<!-- Corner decorations -->
+<div class="corner" id="c-tl">
+    <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+        <path d="M0 40 L0 0 L40 0" stroke="#00fff7" stroke-width="1.5" opacity=".5"/>
+        <path d="M0 60 L0 0 L60 0" stroke="#00fff7" stroke-width=".5" opacity=".2"/>
+        <circle cx="0" cy="0" r="4" fill="#00fff7" opacity=".6"/>
+    </svg>
+</div>
+<div class="corner" id="c-tr">
+    <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+        <path d="M0 40 L0 0 L40 0" stroke="#00fff7" stroke-width="1.5" opacity=".5"/>
+        <path d="M0 60 L0 0 L60 0" stroke="#00fff7" stroke-width=".5" opacity=".2"/>
+        <circle cx="0" cy="0" r="4" fill="#00fff7" opacity=".6"/>
+    </svg>
+</div>
+<div class="corner" id="c-bl">
+    <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+        <path d="M0 40 L0 0 L40 0" stroke="#ff2d78" stroke-width="1.5" opacity=".5"/>
+        <path d="M0 60 L0 0 L60 0" stroke="#ff2d78" stroke-width=".5" opacity=".2"/>
+        <circle cx="0" cy="0" r="4" fill="#ff2d78" opacity=".6"/>
+    </svg>
+</div>
+<div class="corner" id="c-br">
+    <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
+        <path d="M0 40 L0 0 L40 0" stroke="#ff2d78" stroke-width="1.5" opacity=".5"/>
+        <path d="M0 60 L0 0 L60 0" stroke="#ff2d78" stroke-width=".5" opacity=".2"/>
+        <circle cx="0" cy="0" r="4" fill="#ff2d78" opacity=".6"/>
+    </svg>
+</div>
+
+<!-- HUD -->
+<div id="hud">
+    <div id="hud-top">
+        <div>
+            <div class="hud-logo">NEON<span>//</span>WEATHER &nbsp;SYS</div>
+            <div id="search-zone">
+                <span class="search-prefix">CMD&gt;</span>
+                <input id="city-input" type="text" placeholder="CITTÀ..." autocomplete="off" spellcheck="false"/>
+                <button id="search-btn">EXEC</button>
+            </div>
+            <div id="error-line"></div>
+        </div>
+        <div id="clock-wrap">
+            <div id="hud-clock">--:--:--</div>
+            <div id="hud-date"></div>
+        </div>
+    </div>
+
+    <div id="hud-mid"></div>
+
+    <div id="hud-bottom">
+        <!-- LEFT -->
+        <div class="stat-col">
+            <div class="stat-block" id="sb-temp">
+                <div class="stat-lbl">Temperatura</div>
+                <div class="stat-val"><span id="sv-temp">--</span><span class="stat-unit">°C</span></div>
+            </div>
+            <div class="stat-block" id="sb-wind">
+                <div class="stat-lbl">Vento</div>
+                <div class="stat-val"><span id="sv-wind">--</span><span class="stat-unit">km/h</span></div>
+            </div>
+        </div>
+
+        <!-- CENTER -->
+        <div id="center-display">
+            <div id="city-big">---</div>
+            <div id="temp-big">--<sup>°C</sup></div>
+            <div id="condition-big">AWAITING DATA</div>
+        </div>
+
+        <!-- RIGHT -->
+        <div class="stat-col right">
+            <div class="stat-block" id="sb-desc">
+                <div class="stat-lbl">Condizione</div>
+                <div class="stat-val" style="font-size:.8rem;letter-spacing:1px;" id="sv-desc">---</div>
+            </div>
+            <div class="stat-block" id="sb-status">
+                <div class="stat-lbl">Stato sistema</div>
+                <div class="stat-val" style="font-size:.75rem;letter-spacing:1px;color:var(--neon1);" id="sv-status">ONLINE</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="ss-hint">// screensaver mode active — move mouse to interact //</div>
+
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.2.5'
+    id 'io.spring.dependency-management' version '1.1.7'
+}
+
+group = 'com.weather'
+version = '0.0.1-SNAPSHOT'
+description = 'weather-app'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+    // CORE SPRING WEB
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+
+
+    implementation 'com.fasterxml.jackson.core:jackson-databind'
+
+    // TEST
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
